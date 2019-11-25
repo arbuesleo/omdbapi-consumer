@@ -1,0 +1,16 @@
+$shadow-color: #595757;
+
+.card-content{
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 0 2px 4px 0 rgba($shadow-color, 0.6), 0 3px 10px 0 rgba($shadow-color, 0.30);
+    background-color: #666666;
+    transition-property: opacity, box-shadow;
+    transition: .20s linear;
+    cursor: pointer;
+    border: solid 2px transparent;
+}
+
+.selected{
+    border-color: #1281db;
+}

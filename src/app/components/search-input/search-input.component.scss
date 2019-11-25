@@ -1,0 +1,19 @@
+input{
+    color: #fff;
+    border-bottom: solid 1px #fff;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color: #000;
+    height: 30px;
+    width: 300px;
+    text-align: center;
+    
+    &:focus{
+        outline: none;
+    }
+
+    &::-webkit-input-placeholder {
+        text-align: center;
+     }
+}

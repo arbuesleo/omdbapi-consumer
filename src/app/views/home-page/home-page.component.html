@@ -1,0 +1,54 @@
+<div class="face-one" *ngIf="faceIndex == 1">
+    <div class="container" (keypress)="keyPress($event)" >
+        
+        <div class="movies-search">
+            <div class="row justify-content-center pt-2">
+                <app-search-input #searchInput 
+                    placeholder="Digite o nome do filme e pressione ENTER"
+                    (onEnter)="onEnter($event)"
+                    (hasFocus)="hasFocus">
+                </app-search-input>
+            </div>
+            <p class="text-center pt-3">{{message}}</p>
+        </div>
+
+        <div class="movies-content row">
+            <app-card *ngFor="let mov of movies; let i = index" 
+                    class="ite-{{i}} col-xs-6 col-sm-6 col-md-4 col-lg-3" 
+                    [isSelected]="mov.selected" (click)="onCardClick(i)">
+                    
+                    <div class="movie-item">
+                        <img src="{{mov.image}}">  
+                        <p>{{mov.title}}</p>
+                    </div>
+                    
+            </app-card>
+        </div>
+    </div>
+</div>
+<div class="face-two" *ngIf="faceIndex == 2">
+
+    <div class="mov-detail">
+        <img src="{{selectedMov.image}}">
+        <div>
+            <p class="mov-title">{{selectedMov.title}}</p>
+            <p class="mov-sub">{{selectedMov.runtime + ' - ' + selectedMov.genre}}</p>
+            <div class="space"></div>
+            <p class="mov-des">{{selectedMov.plot}}</p>
+            <div class="space"></div>
+            <p> <b>Atores: </b> {{selectedMov.actors}}</p>
+            <p> <b>Diretor: </b>{{selectedMov.director}}</p>
+            <div class="space"></div>
+            <p> <b>Indioma Original: </b>{{selectedMov.language}}</p>
+            <div class="space"></div>
+            <p> <b>Imdb: </b> {{selectedMov.imdbRating + '/10'}}</p>
+            <p> <b>Metacritic: </b> {{selectedMov.metascore + '/10'}}</p>
+            <div class="btn-content">
+                <button #btnBack class="btn-back" (click)="back()">Voltar</button>
+                <button #btnNewSearch class="btn-new-search" (click)="newSearch()">Nova Busca</button>
+            </div>
+        </div>
+    </div>
+
+   
+</div>
